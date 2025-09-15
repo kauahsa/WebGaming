@@ -1,0 +1,289 @@
+/* Reset Básico e Padrões Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container Principal - Agora usando Grid para estrutura geral */
+.container {
+    background-color: #16213e;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 1200px;
+    border: 1px solid #0f3460;
+    display: grid; /* Ativa o layout de grade */
+    grid-template-rows: auto 1fr; /* Linha do cabeçalho com altura automática, conteúdo principal preenche o resto */
+    gap: 30px; /* Espaçamento entre o cabeçalho e o conteúdo principal */
+}
+
+h1, h2 {
+    color: #e94560;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #e94560;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #0f3460;
+    padding-bottom: 15px;
+}
+
+/* Formulários de Login e Cadastro - Organizado com Grid */
+.form-container {
+    max-width: 450px;
+    margin: 0 auto;
+    /* Sobrepõe a grade do .container para um layout de 3 linhas: header, form, footer */
+    grid-template-rows: auto 1fr auto; 
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #c0c0c0;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    background-color: #1f2847;
+    border: 1px solid #0f3460;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23e0e0e0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
+}
+
+.form-group input[readonly],
+.form-group input[disabled] {
+    background-color: #2a3457;
+    cursor: not-allowed;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #e94560;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #d43d51;
+    transform: translateY(-2px);
+}
+
+a.btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-link a {
+    color: #53a8b6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-link a:hover {
+    color: #e94560;
+    text-decoration: underline;
+}
+
+/* Header de Navegação (Páginas Internas) */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #0f3460;
+}
+
+.main-header nav {
+    display: flex;
+    gap: 10px;
+}
+
+.main-header nav a {
+    text-decoration: none;
+    color: #e0e0e0;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.main-header nav a:hover {
+    background-color: #2a3457;
+}
+
+.main-header nav a.active {
+    background-color: #e94560;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+/* Conteúdo Principal */
+main {
+    grid-row: 2 / 3;
+}
+
+/* Página do Jogo - Layout de 3 colunas com Grid */
+.game-page-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 40px;
+}
+
+.game-info, .game-board-container, .game-history {
+    background-color: #1f2847;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.game-history {
+    overflow-x: auto;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item span {
+    font-weight: bold;
+}
+
+.game-actions .btn {
+    font-size: 0.9rem;
+}
+
+.btn.cheat-on {
+    background-color: #53a8b6;
+}
+.btn.cheat-on:hover {
+    background-color: #4b95a2;
+}
+
+.btn.cheat-off {
+    background-color: #3d5a80;
+}
+
+.btn.cheat-off:hover {
+    background-color: #354e6f;
+}
+
+/* Tabuleiro do Jogo (Estático) - Grid aninhado */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    aspect-ratio: 1 / 1;
+}
+
+.card {
+    background-color: #53a8b6;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #fff;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+
+.card.hidden {
+    background-color: #0f3460;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z' fill='%2316213e' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Tabelas (Histórico e Ranking) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    white-space: nowrap;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #0f3460;
+}
+
+thead {
+    background-color: #0f3460;
+}
+
+th {
+    color: #e94560;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #1a243f;
+}
+
+tbody tr:hover {
+    background-color: #2a3457;
+}
+
+.win {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.loss {
+    color: #e74c3c;
+    font-weight: bold;
+}
