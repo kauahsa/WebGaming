@@ -5,113 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Memória</title>
     <link rel="stylesheet" href="index.css">
+    <style>
+      .card.revealed { transform: none !important; }
+    </style>
 </head>
 <body>
     <div class="container">
         <header class="main-header">
             <div class="welcome-message">
-                Bem-vindo, <span>Jogador1</span>!
+                Bem-vindo, <span id="playerName">Jogador</span>!
             </div>
             <nav>
                 <a href="jogo.html" class="active">Jogar</a>
                 <a href="ranking.html">Ranking Global</a>
                 <a href="perfil.html">Editar Perfil</a>
-                <a href="index.html">Desconectar</a>
+                <a href="index.html" id="logoutLink">Desconectar</a>
             </nav>
         </header>
-
         <main class="game-page-layout">
-            <!-- Coluna de Configuração e Ações -->
             <aside class="game-info">
                 <section class="game-setup">
                     <h3>Menu</h3>
                     <a href="config.html" class="btn">Nova Partida</a>
                 </section>
-                
-                <!-- Seção que apareceria durante o jogo -->
                 <section class="game-status">
                     <h3>Informações da Partida</h3>
-                    <div class="info-item">Configuração: <span>4x4</span></div>
-                    <div class="info-item">Modalidade: <span>Clássica</span></div>
-                    <div class="info-item">Tempo: <span>00:37</span></div>
-                    <div class="info-item">Jogadas: <span>12</span></div>
-                    <div class="info-item">Tempo Restante: <span>--:--</span></div>
+                    <div class="info-item">Configuração: <span id="confValue">--</span></div>
+                    <div class="info-item">Modalidade: <span id="modeValue">--</span></div>
+                    <div class="info-item">Tempo: <span id="timeValue">00:00</span></div>
+                    <div class="info-item">Jogadas: <span id="movesValue">0</span></div>
+                    <div class="info-item">Tempo Restante: <span id="remainValue">--:--</span></div>
                 </section>
-                
                 <section class="game-actions">
                     <h3>Ações do Jogo</h3>
-                    <button class="btn">Desistir</button>
-                    <button class="btn cheat-on">Modo Trapaça (ON)</button>
-                    <button class="btn cheat-off">Modo Trapaça (OFF)</button>
+                    <button class="btn" id="btnGiveUp">Desistir</button>
+                    <button class="btn cheat-on" id="btnCheatOn">Modo Trapaça (ON)</button>
+                    <button class="btn cheat-off" id="btnCheatOff">Modo Trapaça (OFF)</button>
                 </section>
             </aside>
-
-            <!-- Coluna Central com o Tabuleiro -->
             <section class="game-board-container">
                 <h2>Jogo da Memória</h2>
-                <div class="game-board">
-                    <!-- Cards estáticos para demonstração de layout -->
-                    <div class="card revealed">A</div>
-                    <div class="card hidden"></div>
-                    <div class="card hidden"></div>
-                    <div class="card revealed">B</div>
-                    <div class="card hidden"></div>
-                    <div class="card revealed">C</div>
-                    <div class="card hidden"></div>
-                    <div class="card hidden"></div>
-                    <div class="card hidden"></div>
-                    <div class="card revealed">D</div>
-                    <div class="card revealed">B</div>
-                    <div class="card hidden"></div>
-                    <div class="card revealed">A</div>
-                    <div class="card hidden"></div>
-                    <div class="card revealed">D</div>
-                    <div class="card revealed">C</div>
-                </div>
+                <div id="board" class="game-board" role="grid" aria-label="Tabuleiro do jogo da memória"></div>
             </section>
-
-            <!-- Coluna do Histórico do Jogador -->
             <aside class="game-history">
-                <h3>Seu Histórico</h3>
-                <table>
+                <h3>Seu Histórico (sessão atual)</h3>
+                <table id="sessionHistory">
                     <thead>
                         <tr>
                             <th>Dimensões</th>
                             <th>Modo</th>
                             <th>Jogadas</th>
+                            <th>Tempo</th>
                             <th>Resultado</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>4x4</td>
-                            <td>Clássica</td>
-                            <td>25</td>
-                            <td class="win">Vitória</td>
-                        </tr>
-                        <tr>
-                            <td>6x6</td>
-                            <td>Tempo</td>
-                            <td>--</td>
-                            <td class="loss">Derrota</td>
-                        </tr>
-                        <tr>
-                            <td>2x2</td>
-                            <td>Clássica</td>
-                            <td>5</td>
-                            <td class="win">Vitória</td>
-                        </tr>
-                         <tr>
-                            <td>4x4</td>
-                            <td>Tempo</td>
-                            <td>31</td>
-                            <td class="win">Vitória</td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </aside>
         </main>
     </div>
+    <script src="jogo.js"></script>
 </body>
 </html>
-

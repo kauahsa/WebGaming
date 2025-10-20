@@ -25,12 +25,16 @@ body {
     width: 100%;
     max-width: 1200px;
     border: 1px solid #0f3460;
-    display: grid; /* Ativa o layout de grade */
-    grid-template-rows: auto 1fr; /* Linha do cabeçalho com altura automática, conteúdo principal preenche o resto */
-    gap: 30px; /* Espaçamento entre o cabeçalho e o conteúdo principal */
+    display: grid;
+    /* Ativa o layout de grade */
+    grid-template-rows: auto 1fr;
+    /* Linha do cabeçalho com altura automática, conteúdo principal preenche o resto */
+    gap: 30px;
+    /* Espaçamento entre o cabeçalho e o conteúdo principal */
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #e94560;
     text-align: center;
     margin-bottom: 25px;
@@ -48,7 +52,7 @@ h3 {
     max-width: 450px;
     margin: 0 auto;
     /* Sobrepõe a grade do .container para um layout de 3 linhas: header, form, footer */
-    grid-template-rows: auto 1fr auto; 
+    grid-template-rows: auto 1fr auto;
     gap: 20px;
 }
 
@@ -63,7 +67,8 @@ h3 {
     color: #c0c0c0;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select {
     width: 100%;
     padding: 12px;
     background-color: #1f2847;
@@ -79,7 +84,8 @@ h3 {
     background-position: right 12px center;
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #e94560;
     box-shadow: 0 0 8px rgba(233, 69, 96, 0.5);
@@ -178,7 +184,9 @@ main {
     gap: 40px;
 }
 
-.game-info, .game-board-container, .game-history {
+.game-info,
+.game-board-container,
+.game-history {
     background-color: #1f2847;
     padding: 25px;
     border-radius: 10px;
@@ -209,6 +217,7 @@ main {
 .btn.cheat-on {
     background-color: #53a8b6;
 }
+
 .btn.cheat-on:hover {
     background-color: #4b95a2;
 }
@@ -231,15 +240,16 @@ main {
 
 .card {
     background-color: #53a8b6;
-    border-radius: 5px;
-    cursor: pointer;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Mantém quadrado proporcional ao grid */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    color: #fff;
-    transition: transform 0.3s;
-    transform-style: preserve-3d;
+    font-size: 2.2rem;
+    overflow: hidden;
+    line-height: 1;
+    user-select: none;
 }
 
 .card.hidden {
@@ -255,7 +265,8 @@ table {
     white-space: nowrap;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #0f3460;

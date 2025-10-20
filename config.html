@@ -10,7 +10,7 @@
     <div class="container">
         <header class="main-header">
             <div class="welcome-message">
-                Bem-vindo, <span>Jogador1</span>!
+                Bem-vindo, <span>Jogador</span>!
             </div>
             <nav>
                 <a href="jogo.html" class="active">Jogar</a>
@@ -19,18 +19,17 @@
                 <a href="index.html">Desconectar</a>
             </nav>
         </header>
-
         <main>
-            <div class="form-container" style="margin-top: 20px;">
+            <section class="form-container" style="margin-top: 20px;">
                 <h2>Configurar Nova Partida</h2>
-                <form action="jogo.html" method="get">
+                <form id="configForm">
                     <div class="form-group">
                         <label for="board-size">Dimensão do Tabuleiro</label>
                         <select id="board-size" name="board-size">
-                            <option value="2x2">2x2</option>
-                            <option value="4x4" selected>4x4</option>
-                            <option value="6x6">6x6</option>
-                            <option value="8x8">8x8</option>
+                            <option value="2">2x2</option>
+                            <option value="4" selected>4x4</option>
+                            <option value="6">6x6</option>
+                            <option value="8">8x8</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -40,10 +39,21 @@
                             <option value="time-attack">Contra o Tempo</option>
                         </select>
                     </div>
-                    <a href="jogo.html" class="btn">Iniciar Jogo</a>
+                    <button type="submit" class="btn">Iniciar Jogo</button>
                 </form>
-            </div>
+            </section>
         </main>
     </div>
+    <script>
+    document.getElementById('configForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        const size = document.getElementById('board-size').value;
+        const mode = document.getElementById('game-mode').value;
+        const url = new URL(window.location.origin + window.location.pathname.replace('config.html','jogo.html'));
+        url.searchParams.set('size', size);
+        url.searchParams.set('mode', mode);
+        window.location.href = url.toString();
+    });
+    </script>
 </body>
 </html>
